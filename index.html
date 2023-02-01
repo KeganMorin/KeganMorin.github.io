@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>            
+        <title>GIMM 285 Form</title>
+        <link rel='stylesheet' href='style.css'>
+    </head>
+    <body>
+        <h1>Pokemon Information Forum</h1>
+        <div id='invalidate-form' class='alert-error'></div>
+        <hr/>
+            <div class='row'>
+    <div class='col-3'>
+        <label for="fname">Favorite Pokemon:</label><br>
+    </div>
+        <div class='col-9'>
+        <input type="text" id="fname" name="fname"><br>
+    </div>
+    </div>
+    <div class='row'>
+        <div id='Favorite Pokemon-error' class='col-12 error-message'>&nbsp;</div>
+    </div>
+    <div class='row'>
+        <div class='col-3'>
+            <label for="myfile">Image of Pokemon:</label>
+        </div>
+        <div class='col-9'>
+  <input type="file" id="file" name="file">
+  <br>
+</div>
+</div>
+<div class='row'>
+    <div id='file-error' class='col-12 error-message'>&nbsp;</div>
+</div>
+<div class='row'>
+    <div class='col-3'>
+<label for="starters">Favorite Starter Pokemon (Gen 1):</label>
+</div>
+<div class='col-9'>
+<select id="starters" name="starters">
+  <option value="Squirtle">Squirtle</option>
+  <option value="Charmander">Charmander</option>
+  <option value="Bulbasaur">Bulbasaur</option>
+</select>
+</div>
+</div>
+<div class='row'>
+    <div id='Favorite Starter-error' class='col-12 error-message'>&nbsp;</div>
+</div>
+<div class='row'>
+    <div class='col-3'>
+        <label for="fname">First Played Pokemon Game:</label><br>
+    </div>
+        <div class='col-9'>
+        <input type="text" id="Game" name="fname"><br>
+    </div>
+    </div>
+    <div class='row'>
+        <div id='First Played Game-error' class='col-12 error-message'>&nbsp;</div>
+    </div>
+    <div class='row'>
+        <div class='col-3'>
+            <label for="quantity">Favorite Pokemon Generation:</label>
+        </div>
+        <div class='col-9'>
+            <input type="number" id="quantity" name="quantity" min="1" max="9">    
+    </div>
+</div>
+<div class='row'>
+    <div id='Favorite Gen-error' class='col-12 error-message'>&nbsp;</div>
+</div>
+<div class='row'>
+    <div class='col-3'>
+        <p>Experience with Pokemon:</p>
+    </div>
+    <div class='col-9' id = "result">
+<input type="radio" id="answer1" name="fav_language" value="I have played barely if any Pokemon at all">
+<label for="html">I have played barely if any Pokemon at all</label><br>
+<input type="radio" id="answer2" name="fav_language" value = "I have played it before casually as a kid">
+<label for="css">I have played it before casually as a kid</label><br>
+<input type="radio" id="answer3" name="fav_language" value = "I love Pokemon games and still play them today">
+<label for="javascript">I love Pokemon games and still play them today</label>
+</div>
+</div>
+<div class='row'>
+    <div id='Experience-error' class='col-12 error-message'>&nbsp;</div>
+</div>
+        <div class='row'>
+            <div class='col-12'>
+                <button id='submit'>Submit</button>
+            </div>
+        </div>
+    <script>
+         const errorBanner = document.getElementById('invalidate-form');
+        errorBanner.hidden = true;
+    const button = document.getElementById('submit');
+        button.addEventListener('click', (event) => {
+            const results = new FormData();
+    const data = document.querySelector('input[type="file"]');
+            results.append('Favorite Pokemon', document.getElementById('fname').value);
+            results.append('file', data.files[0]);
+            results.append('Favorite Starter', document.getElementById('starters').value);
+            results.append('First Played Game', document.getElementById('Game').value);
+            results.append('Favorite Gen', document.getElementById('quantity').value);
+              
+            for(i = 0; i < document.getElementsByName('fav_language').length; i++) {
+                if(document.getElementsByName('fav_language')[i].checked)
+                results.append('Experience', document.getElementsByName('fav_language')[i].value)
+            }
+
+            fetch('http://localhost', {
+                method: `POST`,
+                body: results,
+            })
+            .then((response) => {
+                    return new Promise((resolve) => response.json()
+                        .then((json) => resolve({
+                            status: response.status,
+                            json,
+                        })
+                    ));
+                })
+                //Logic to display errors on form 
+                .then(({status, json}) => {
+                    const errorMessages = document.getElementsByClassName('error-message');
+                    errorBanner.hidden = true;
+                    for (htmlElement of errorMessages) {
+                        htmlElement.innerHTML = '&nbsp;';
+                    }
+                    if (status === 400) {
+                        errorBanner.innerText = 'Form has errors. Please correct them and resubmit.';
+                        errorBanner.hidden = false;
+                        for (error of json.errors) {
+                            const errorId = error.param + '-error';
+                            document.getElementById(errorId).innerHTML = error.msg
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            return;
+        });
+        </script>
+        <hr/>
+    </body>
+</html>
