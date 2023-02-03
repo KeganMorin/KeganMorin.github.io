@@ -77,6 +77,10 @@ body{
 }
 .Links{
    color: rgb(73, 169, 214); 
+  
+}
+#nav-class{
+    border-top: solid rgb(94, 86, 168) 4px;
 }
 h4{
     font-family:'Orange Squash';
