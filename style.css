@@ -149,3 +149,10 @@ p{
     margin-top: 20px;
     
 }
+.hideBar{
+    overflow: hidden;
+}
+#bookmarks a:hover{
+    opacity: 100%;
+    color:red;
+}
