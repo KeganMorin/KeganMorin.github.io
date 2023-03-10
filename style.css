@@ -1,0 +1,259 @@
+* {
+    box-sizing: border-box;
+}
+
+/* For mobile phones: */
+[class*="col-"] {
+    width: 100%;
+}
+ 
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+}
+
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/** Image - https://www.w3schools.com/css/css_rwd_grid.asp **/   
+img{
+    width: 35%;
+    height: 500px;
+    border: 5px solid  rgb(94, 86, 168)
+}
+/** Overflow (for tables) - https://www.w3schools.com/howto/howto_css_table_responsive.asp **/
+h1{
+    text-align: center;
+    color: rgb(73, 169, 214);
+    font-family: 'Alasalom Demo';
+}
+
+#image{
+    text-align: center;
+    vertical-align: top;
+}
+.img-fluid{
+    max-height: 600px;
+}
+body{
+    /*background-color: rgb(19,24,43); */
+    background-image: url("images/Background.jfif");
+    font-family: 'Alasalom Demo';
+    overflow-x: hidden;
+    word-spacing: 2px;
+}
+@font-face {
+    font-family: 'Alasalom Demo';
+    src: url('Fonts/Albasalom\ Font.otf');
+}
+@font-face{
+    font-family: 'Orange Squash';
+    src: url('Fonts/Orange\ Squash\ Font.otf')
+}
+.Descriptions{
+    background-color:rgb(82, 140, 174);
+    color:rgb(233, 228, 213);
+    font-family: 'Alasalom Demo';
+    border: 8px solid rgb(19,24,43);
+    border-style: double;
+    
+}
+.Links{
+   color: rgb(73, 169, 214); 
+  
+}
+#nav-class{
+    border-top: solid rgb(94, 86, 168) 4px;
+}
+h4{
+    font-family:'Orange Squash';
+}
+.Descriptions2
+{
+    background-color: rgb(19,24,43);
+    color: rgb(73, 169, 214);
+    font-family: 'Alasalom Demo';
+    border: 8px solid rgb(73, 169, 214);
+    border-style: double;
+}
+#bookmarks{
+    font-size: 20px;
+    opacity: 40%;
+}
+#row1{
+    padding-bottom: 20px;
+}
+#row2{
+    padding-bottom: 20px;
+}
+#row3{
+    padding-bottom: 20px;
+}
+#row4{
+    padding-bottom: 20px;
+}
+i{
+    font-size: 30px;
+    padding-right: 15px;
+}
+a:hover{
+    height: fit-content;
+    opacity: 40%;
+}
+hr{
+    border-color: rgb(94, 86, 168);
+    border-width: 5px;
+}
+#C5{
+    text-align: center;
+    color: rgb(73, 169, 214);
+    font-family: 'Alasalom Demo';
+    font-size: 25px;
+}
+p{
+    font-size: 20px;
+}
+video{
+    width: 100%;
+    height: 80%;
+}
+#nav-class{
+    background-image: url("images/Background.jfif");
+}
+.navbar-brand{
+    color: rgb(19,24,43);
+    font-family: 'Alasalom Demo';
+    font-size: 25px;
+}
+.dropdown-menu{
+    background-color: rgb(136, 214, 73);
+}
+#dropdown-button{
+    font-family: 'Alasalom Demo';
+}
+#Resources{
+    font-size: 25px;
+    margin-top: 20px;
+    
+}
+.Container
+{padding: 5px;
+    margin: auto;
+}
+
+.slideshow-container {
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+  
+  /* Next & previous buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: inherit;
+    margin-top: -22px;
+    padding: 18px;
+    color: black;
+    font-weight: bold;
+    font-size: 22px;
+    transition: 0.6s ease;
+    border-radius: 0 4px 4px 0;
+    user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  /* Caption text */
+  #text {
+    color: white;
+    font-size: 25px;
+    padding: 8px 12px;
+    position: inherit;
+    top: 1260px;
+    left: 285.5px;
+    width: 100%;
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: black;
+    font-size: 22px;
+    padding: 8px 12px;
+    position: inherit;
+    top: 810px;
+  }
+  
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-flex;
+    transition: background-color 0.6s ease;
+  }
+  
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+  
+  /* Fading animation
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  */
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+
+  #Artifact_1_Description{
+    float: right;
+  }
+
+  #dots
+  {
+    padding-left: 42%;
+  }
+
+  .fa-brands_fa-unity
+  {
+    position: absolute;
+    top: 680px;
+    padding-bottom: 5px;
+  }
+  #C2, #C3{
+    padding-top: 15px;
+  }
+  
