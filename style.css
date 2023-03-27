@@ -42,7 +42,7 @@ img{
 /** Overflow (for tables) - https://www.w3schools.com/howto/howto_css_table_responsive.asp **/
 h1{
     text-align: center;
-    color: rgb(73, 169, 214);
+    color: black;
     font-family: 'Alasalom Demo';
 }
 
