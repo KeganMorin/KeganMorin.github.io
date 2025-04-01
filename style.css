@@ -69,7 +69,7 @@ body{
     src: url('Fonts/Orange\ Squash\ Font.otf')
 }
 .Descriptions{
-    background-color:rgb(82, 140, 174);
+    background-color:rgb(19,24,43);
     color:rgb(233, 228, 213);
     font-family: 'Alasalom Demo';
     border: 8px solid rgb(19,24,43);
@@ -88,6 +88,14 @@ h4{
     font-size: 30px;
 }
 .Descriptions2
+{
+    background-color: rgb(19,24,43);
+    color: rgb(73, 169, 214);
+    font-family: 'Alasalom Demo';
+    border: 8px solid rgb(73, 169, 214);
+    border-style: double;
+}
+.Descriptions3
 {
     background-color: rgb(19,24,43);
     color: rgb(73, 169, 214);
@@ -167,8 +175,7 @@ video{
 }
 
 .slideshow-container {
-    max-width: 800px;
-    margin: auto;
+    max-width: 400px;
   }
   
   /* Hide the images by default */
@@ -228,6 +235,7 @@ video{
     border-radius: 50%;
     display: inline-flex;
     transition: background-color 0.6s ease;
+    position: relative;
   }
   
   .active, .dot:hover {
@@ -251,7 +259,7 @@ video{
 
   #dots
   {
-    padding-left: 36%;
+    padding-left: 22%;
   }
 
   .fa-brands_fa-unity
