@@ -188,6 +188,7 @@ video{
     transition: 0.6s ease;
     border-radius: 0 4px 4px 0;
     user-select: none;
+    padding-left: 10px;
   }
   
   /* Position the "next button" to the right */
@@ -250,7 +251,7 @@ video{
 
   #dots
   {
-    padding-left: 42%;
+    padding-left: 36%;
   }
 
   .fa-brands_fa-unity
